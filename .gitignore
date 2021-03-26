@@ -1,0 +1,7 @@
+build/*
+.so
+__pycache__/*
+.idea/*
+flann/*
+third_party/FLANN/build
+flann_python.egg-info/*
