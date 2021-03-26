@@ -6,3 +6,4 @@ flann/*.so
 third_party/FLANN/build
 third_party/FLANN/__pycache__
 flann_python.egg-info/*
+third_party/FLANN/__pycache__/*
