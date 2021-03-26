@@ -22,12 +22,11 @@ class BuildExt(build_ext):
 
     def __init__(self, *args, **kwargs):
         super(BuildExt, self).__init__(*args, **kwargs)
-        self.inplace = True     # Always build inplace
 
     def _build_flann(self):
         shutil.rmtree(FLANN_BUILD_DIR, ignore_errors=True)
+        current_dir = os.getcwd()
         os.makedirs(FLANN_BUILD_DIR, exist_ok=True)
-
         os.chdir(f'{FLANN_BUILD_DIR}')
         subprocess.call(['cmake',
                          # f'-DCMAKE_INSTALL_PREFIX=${FLANN_LIB_DIR}',
@@ -37,6 +36,7 @@ class BuildExt(build_ext):
                          '-DBUILD_TESTS=OFF',
                          f'{FLANN_DIR}'])
         subprocess.call(['make'])
+        os.chdir(current_dir)
 
     def build_extensions(self):
         self._build_flann()

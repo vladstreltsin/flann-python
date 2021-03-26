@@ -4,4 +4,5 @@ __pycache__/*
 .idea/*
 flann/*
 third_party/FLANN/build
+third_party/FLANN/__pycache__
 flann_python.egg-info/*
